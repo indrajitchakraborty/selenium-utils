@@ -1,1 +1,4 @@
+com\github\indrajitchakraborty\utils\ExtentReportManager.class
+com\github\indrajitchakraborty\listeners\TestReportListener.class
 com\github\indrajitchakraborty\driver\DriverFactory.class
+com\github\indrajitchakraborty\driver\Test.class
