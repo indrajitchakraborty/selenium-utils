@@ -1,5 +1,6 @@
 package com.github.indrajitchakraborty.driver;
 
+import com.github.indrajitchakraborty.utilis.ConfigureThread;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -8,23 +9,43 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
 
-    public static WebDriver getChromeDriver(){
+    static ConfigureThread configThred = new ConfigureThread();
+    static WebDriver driver;
 
-        return new ChromeDriver();
+    public static void navigateWithChrome(String url){
+
+        driver = new ChromeDriver();
+
+        configThred.setDriver(driver);
+        configThred.getDriver();
+
+        configThred.getDriver().get(url);
+    }
+    public static void navigateWithFirefox(String url){
+
+       driver = new FirefoxDriver();
+
+       configThred.setDriver(driver);
+       configThred.getDriver();
+
+       configThred.getDriver().get(url);
+    }
+    public static void navigateWithSafari(String url){
+
+      driver = new SafariDriver();
+
+      configThred.setDriver(driver);
+      configThred.getDriver();
+      configThred.getDriver().get(url);
+    }
+    public static void navigateWithEdge(String url){
+
+       driver = new EdgeDriver();
+
+       configThred.setDriver(driver);
+       configThred.getDriver();
+       configThred.getDriver().get(url);
     }
 
-    public static  WebDriver getFirefoxDriver(){
 
-        return new FirefoxDriver();
-    }
-
-    public static WebDriver getEdgeDriver(){
-
-        return new EdgeDriver();
-    }
-
-    public static WebDriver getSafariDriver(){
-
-        return new SafariDriver();
-    }
 }

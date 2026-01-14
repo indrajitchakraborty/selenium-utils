@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Extent Report Suite" parallel="tests">
+
+    <!-- Dynamic report name & title -->
+    <parameter name="reportName" value="MyDynamicReport"/>
+    <parameter name="reportTitle" value="Login Module Automation Report"/>
+
+    <!-- Dynamic system info -->
+    <parameter name="Browser" value="Chrome"/>
+    <parameter name="Env" value="QA"/>
+    <parameter name="OS" value="Windows 11"/>
+
+    <listeners>
+        <listener class-name="com.github.indrajitchakraborty.extent.ExtentListener"/>
+    </listeners>
+
+
+
+</suite>
