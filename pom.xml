@@ -28,11 +28,6 @@
 
   <dependencies>
 
-      <dependency>
-          <groupId>com.github.indrajitchakraborty</groupId>
-          <artifactId>selenium-utils</artifactId>
-          <version>v0.0.2</version>
-      </dependency>
 
       <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
       <dependency>

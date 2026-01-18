@@ -21,18 +21,18 @@ public class ScreenshotUtil {
             System.out.println("Please Set The Driver using SetDriver Method First for Thread safe");
         }
             String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
-            String screenshotDir = System.getProperty("user.dir") + "/extent-test-report/screenshots/";
+            String screenshotDir = System.getProperty("user.dir") + File.separator+ "extent-test-report" +File.separator+ "screenshots" +File.separator;
             String screenshotPath = screenshotDir + testName + "_" + timeStamp + ".png";
 
             try {
                 new File(screenshotDir).mkdirs();
                 File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                Files.copy(src.toPath(), new File(screenshotPath).toPath(),
-                        StandardCopyOption.REPLACE_EXISTING);
+                File dest = new File(screenshotDir + screenshotPath);
+                Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        return "screenshots/" + screenshotPath;
+        return "screenshots" +File.separator + screenshotPath;
         }
 
 }
