@@ -18,21 +18,38 @@ public class ScreenshotUtil {
 
         WebDriver driver = DriverManagerWithThread.getDriver();
         if (driver == null) {
-            System.out.println("Please Set The Driver using SetDriver Method First for Thread safe");
+            System.out.println("Driver is null. Please set driver using setDriver()");
+            return null;
         }
-            String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
-            String screenshotDir = System.getProperty("user.dir") + File.separator+ "extent-test-report" +File.separator+ "screenshots" +File.separator;
-            String screenshotPath = screenshotDir + testName + "_" + timeStamp + ".png";
 
-            try {
-                new File(screenshotDir).mkdirs();
-                File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                File dest = new File(screenshotDir + screenshotPath);
-                Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        return "screenshots" +File.separator + screenshotPath;
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
+
+        //Report base folder
+        String reportDir = System.getProperty("user.dir")
+                + File.separator + "extent-test-report";
+
+        //Screenshot folder INSIDE report
+        String screenshotDir = reportDir
+                + File.separator + "screenshots";
+
+        String screenshotName = testName + "_" + timeStamp + ".png";
+
+        try {
+            new File(screenshotDir).mkdirs();
+
+            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File dest = new File(screenshotDir + File.separator + screenshotName);
+
+            Files.copy(src.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
+
+        //VERY IMPORTANT: return RELATIVE path with forward slash
+        return "screenshots/" + screenshotName;
+
+    }
 
 }
