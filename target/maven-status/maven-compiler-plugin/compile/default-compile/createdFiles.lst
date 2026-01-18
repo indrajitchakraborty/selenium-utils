@@ -5,3 +5,4 @@ com/github/indrajitchakraborty/extent/ExtentListener.class
 com/github/indrajitchakraborty/driver/DriverManagerWithThread.class
 com/github/indrajitchakraborty/utilis/ScreenshotUtil.class
 com/github/indrajitchakraborty/extent/ExtentTestManager.class
+com/github/indrajitchakraborty/driver/Test.class

@@ -45,6 +45,7 @@ public class DriverFactory {
        configThred.setDriver(driver);
        configThred.getDriver();
        configThred.getDriver().get(url);
+
     }
 
 

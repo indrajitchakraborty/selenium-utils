@@ -32,7 +32,7 @@ public class ScreenshotUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return screenshotPath;
+        return "screenshots/" + screenshotPath;
         }
 
 }

@@ -14,5 +14,11 @@
     <listeners>
         <listener class-name="com.github.indrajitchakraborty.extent.ExtentListener"/>
     </listeners>
+    
+    <test name="Test 1">
+        <classes>
+            <class name="com.github.indrajitchakraborty.driver.Test"/>
+        </classes>
+    </test>
 
 </suite>

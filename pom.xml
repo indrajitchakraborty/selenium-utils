@@ -31,7 +31,7 @@
       <dependency>
           <groupId>com.github.indrajitchakraborty</groupId>
           <artifactId>selenium-utils</artifactId>
-          <version>v1.0.2</version>
+          <version>v0.0.2</version>
       </dependency>
 
       <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
