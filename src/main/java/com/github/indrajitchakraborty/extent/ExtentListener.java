@@ -2,6 +2,8 @@ package com.github.indrajitchakraborty.extent;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.github.indrajitchakraborty.utilis.ScreenshotUtil;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
@@ -45,6 +47,17 @@ public class ExtentListener implements ITestListener , ISuiteListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentTestManager.getTest().fail(result.getThrowable());
+
+        String screenshotPath = ScreenshotUtil.takesScreenshot(result.getMethod().getMethodName());
+
+        if (screenshotPath != null) {
+            ExtentTestManager.getTest().fail(
+                    "Screenshot on Failure",
+                    MediaEntityBuilder
+                            .createScreenCaptureFromPath(screenshotPath)
+                            .build()
+            );
+        }
     }
 
     @Override
